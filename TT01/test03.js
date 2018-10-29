@@ -1,0 +1,15 @@
+process.nextTick(()=>{
+    console.log('nextTick1');
+});
+process.nextTick(()=>{
+    console.log('nextTick2');
+});
+setImmediate(()=>{
+    console.log('setTmmediate1');
+    process.nextTick(()=>{
+        console.log('插入');
+    });
+});
+setImmediate(()=>{
+    console.log('setImmediate2');
+})
